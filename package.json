@@ -1,0 +1,19 @@
+{
+  "name": "node-chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node server/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engine":{
+      "node":"8.9.4"
+  },
+  "author": "pawan bana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "npm": "^6.4.1"
+  }
+}
