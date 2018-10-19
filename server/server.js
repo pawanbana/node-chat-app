@@ -23,7 +23,17 @@ console.log("new user connected");
     socket.on('createEmail',(newEmail)=>{
        console.log('createEmail',newEmail);
     });
+    
+    socket.emit('newMessage',{
+            from:'admin',
+            text:'welcome to chat app'
+    });
 
+    socket.broadcast.emit('newMessage',{
+    	from:'Admin',
+    	text:'new user added',
+    	createdAt:new Date().getTime()
+    });
    
 
     socket.on('createMessage',(message)=>{
@@ -33,6 +43,12 @@ console.log("new user connected");
     		text:message.text,
     		createdAt:new Date().getTime()
     	});
+
+    	/*socket.broadcast.emit('newMessage',{
+    		from:message.from,
+    		text:message.text,
+    		createdAt:new Date().getTime()
+    	});*/
 
     });
 
