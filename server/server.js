@@ -15,10 +15,31 @@ io.on('connection',(socket)=>{
 
 console.log("new user connected");
 
+    socket.emit('newEmail',{
+    	from:'mike@dfdfdf.com',
+        text:'het whats aoo',
+        createAt:'123'});
+
+    socket.on('createEmail',(newEmail)=>{
+       console.log('createEmail',newEmail);
+    });
+
+   
+
+    socket.on('createMessage',(message)=>{
+    	console.log('message is ',message);
+    	io.emit('newMessage',{
+    		from:message.from,
+    		text:message.text,
+    		createdAt:new Date().getTime()
+    	});
+
+    });
+
 	socket.on('disconnect',()=>{
 		console.log("disconnected server");
 	});
-});
+   });
 
 
 
