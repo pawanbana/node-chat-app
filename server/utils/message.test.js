@@ -1,5 +1,5 @@
 var expect=require('expect');
-var {generatemessage}=require('./message');
+var {generatemessage,generateLocationmessage}=require('./message');
 
 describe('generatemessage',()=>{
      
@@ -16,4 +16,21 @@ describe('generatemessage',()=>{
 
 
 
+});
+
+
+describe('generateLocationMessage',()=>{
+    
+
+	it('should generate correct lcoation object',()=>{
+            var from='hithere';
+           var la=1;
+           var lon=2;
+
+           var message=generateLocationmessage(from,la,lon);
+          expect(message.createdAt).toBeA('number');
+          expect(message.url).toBe(`https://www.google.com/maps?q=${la},${lon}`);
+        
+
+	});
 });
