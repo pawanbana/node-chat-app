@@ -30,10 +30,10 @@ console.log("new user connected");
     socket.broadcast.emit('newMessage',generatemessage('Admin','New user Joined'));
    
 
-    socket.on('createMessage',(message)=>{
+    socket.on('createMessage',(message,callback)=>{
     	console.log('message is ',message);
     	io.emit('newMessage',generatemessage(message.from,message.text));
-
+        callback('this is from the server');
     	/*socket.broadcast.emit('newMessage',{
     		from:message.from,
     		text:message.text,
