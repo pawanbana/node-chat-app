@@ -33,7 +33,7 @@ console.log("new user connected");
     socket.on('createMessage',(message,callback)=>{
     	console.log('message is ',message);
     	io.emit('newMessage',generatemessage(message.from,message.text));
-        callback('this is from the server');
+        callback();
     	/*socket.broadcast.emit('newMessage',{
     		from:message.from,
     		text:message.text,
