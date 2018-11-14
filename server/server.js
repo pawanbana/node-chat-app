@@ -29,6 +29,7 @@ console.log("new user connected");
 
     socket.broadcast.emit('newMessage',generatemessage('Admin','New user Joined'));
    
+   
 
     socket.on('createMessage',(message,callback)=>{
     	console.log('message is ',message);
